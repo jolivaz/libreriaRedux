@@ -1,0 +1,12 @@
+.mensaje-alerta{
+    right: 0;
+    max-width: 195px;
+    padding: 5px 10px;
+    position: absolute;
+    background: rgba(255,120,85,0.8);
+}
+h4{
+    margin: 0;
+    color: #fff;
+    font-size: 21px;
+}

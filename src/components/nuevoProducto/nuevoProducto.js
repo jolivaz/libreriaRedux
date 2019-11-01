@@ -1,18 +1,17 @@
-import React, { useState } from 'react'
-
+import React, { useState } from 'react';
+import Mensaje from '../mensaje/mensaje';
 import { useDispatch, useSelector } from 'react-redux';
 import { crearNuevoProductoAction } from '../../actions/productosActions';
-import { 
-            validarForumularioActions, 
-            validacionExito,
-            validacionError
-        } from '../../actions/validarFormularioActions';
+import { validarForumularioActions, 
+         validacionExito,
+         validacionError } from '../../actions/validarFormularioActions';
 
 const NuevoProducto = () => {
 
     //state del componente
     const [nombre, guardarNombre] = useState('');
     const [precio, guardarPrecio] = useState(0);
+    const [mensaje, guardarMensaje] = useState('');
 
     // crear el dispatch por hooks
 
@@ -35,16 +34,33 @@ const NuevoProducto = () => {
             return
         }
 
+        // Validar y agregar producto
         validarFormularioExito();
-
         agregarNuevoProduto({
             nombre,
             precio
         })
+
+        //Limpiar formulario
+        guardarNombre('')
+        guardarPrecio(0)
+
+        //Mostrar mensaje de agregado
+        guardarMensaje('¡Libro agregado con exito!')
+
+        //Ocultar mensaje de agregado
+        setTimeout(()=> {
+            guardarMensaje('')
+        }, 3000)
     }
 
     return (
         <div className="row justify-content-center mt-5">
+            {
+                mensaje !== '' ?
+                <Mensaje mensaje={mensaje} />
+                : null
+            }
            <div className="col-md-8">
                 <div className="card">
                     <div className="card-body">
