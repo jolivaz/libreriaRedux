@@ -6,6 +6,7 @@ import Productos from './components/productos/productos';
 import Header from './components/header/header';
 import { Provider } from 'react-redux';
 import store from './store';
+import './App.css';
 
 function App() {
   return (

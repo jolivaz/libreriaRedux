@@ -1,5 +1,6 @@
 import React, {Fragment, useEffect } from 'react';
 import Producto from '../producto/producto';
+import Filtros from '../filtros/filtros';
 import { obtenerProductosActions } from '../../actions/productosActions';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -27,6 +28,7 @@ const Productos = () => {
             }
                 <Fragment>
                     <h2 className="text-center my-5">Listado de Productos</h2>
+                    <Filtros />
                     <table className="table table-striped">
                         <thead className="bg-primary table-dark">
                             <tr>

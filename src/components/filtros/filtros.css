@@ -1,0 +1,44 @@
+ul{
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+}
+ul li{
+    margin: 10px 10px;
+    cursor: pointer;
+    padding: 2px 10px;
+    font-weight: 600;
+}
+.activa-comedia{
+    color: #fff;
+    border: 2px solid #15DDCB;
+    background-color: #15DDCB;
+}
+.desactiva-comedia{
+    border: 2px solid #15DDCB;
+}
+.activa-cocina{
+    color: #fff;
+    border: 2px solid #F5A626;
+    background-color: #F5A626;
+}
+.desactiva-cocina{
+    border: 2px solid #F5A626;
+}
+.activa-ciencia{
+    color: #fff;
+    border: 2px solid #F6EB04;
+    background-color: #F6EB04;
+}
+.desactiva-ciencia{
+    border: 2px solid #F6EB04;
+}
+.activa-deporte{
+    color: #fff;
+    border: 2px solid #9704F6;
+    background-color: #9704F6;
+}
+.desactiva-deporte{
+    border: 2px solid #9704F6;
+}

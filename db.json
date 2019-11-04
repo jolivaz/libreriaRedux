@@ -2,18 +2,27 @@
   "libros": [
     {
       "id": 1,
-      "nombre": "Libro de Javascript",
-      "precio": "80"
+      "nombre": "Calentamiento Global",
+      "precio": "80",
+      "categoria": "ciencia"
     },
     {
       "id": 2,
       "nombre": "Mi pasion el futbol",
-      "precio": "150"
+      "precio": "150",
+      "categoria": "deporte"
     },
     {
       "id": 3,
-      "nombre": "Coniciendo el mundo",
-      "precio": "200"
+      "nombre": "Soy un Chef",
+      "precio": "200",
+      "categoria": "cocina"
+    },
+    {
+      "nombre": "Nuevo libro de comedia",
+      "precio": "200",
+      "categoria": "comedia",
+      "id": 4
     }
   ]
 }

@@ -13,7 +13,10 @@ import {
         EDITAR_PRODUCTO_EXITOSA,
         COMENZAR_EDITAR_PRODUCTO,
         PRODUCTO_EDITADO_EXITO,
-        PRODUCTO_EDITADO_ERROR
+        PRODUCTO_EDITADO_ERROR,
+        PRODUCTOS_FILTRADOS,
+        PRODUCTOS_FILTRADOS_EXITO,
+        PRODUCTOS_FILTRADOS_ERROR
     } from "../types";
 
 const initialState = {
@@ -112,7 +115,23 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 error: true
-            }  
+            } 
+        case PRODUCTOS_FILTRADOS:
+            return {
+                ...state,
+                error: true
+            } 
+        case PRODUCTOS_FILTRADOS_EXITO:
+            return {
+                ...state,
+                productos: action.payload,
+                error: false
+            } 
+        case PRODUCTOS_FILTRADOS_ERROR:
+            return {
+                ...state,
+                error: true
+            }              
         default:
             return state
     }

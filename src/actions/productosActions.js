@@ -13,7 +13,10 @@ import {
     EDITAR_PRODUCTO_EXITOSA,
     COMENZAR_EDITAR_PRODUCTO,
     PRODUCTO_EDITADO_EXITO,
-    PRODUCTO_EDITADO_ERROR
+    PRODUCTO_EDITADO_ERROR,
+    PRODUCTOS_FILTRADOS,
+    PRODUCTOS_FILTRADOS_ERROR,
+    PRODUCTOS_FILTRADOS_EXITO
 } from "../types";
 import clienteAxios from '../config/axios';
 import Swal from 'sweetalert2';
@@ -192,5 +195,53 @@ export const editandoProductoObtenidoExito = (producto) => ({
 
 export const editandoProductoObtenidoError = () => ({
     type: PRODUCTO_EDITADO_ERROR,
+    error: true
+})
+
+export const filtrandoProductos = () => ({
+    type: PRODUCTOS_FILTRADOS
+})
+
+export function inciandoFiltrandoProductos(filtro) {
+    return (dispatch) => {
+        dispatch( FiltrandoProductos() );
+
+        clienteAxios.get('/libros' )
+        .then(respuesta => {
+            let productosFiltrados = [];
+
+            respuesta.data.map(producto => {
+                filtro.nuevoFiltro.map(valorFiltrado => {
+                    if (valorFiltrado === producto.categoria) {
+                        productosFiltrados.push(producto)
+                    }
+                    return false
+                })
+                return false
+            })
+
+            dispatch( filtrandoProductosExito(productosFiltrados) );
+        })
+        .catch(error => {
+            console.error('error al consultar', error);
+
+            // Si  hay un error
+            dispatch( filtrandoProductosError() );
+        })
+    }
+}
+
+export const FiltrandoProductos = () => ({
+    type: PRODUCTOS_FILTRADOS
+});
+
+export const filtrandoProductosExito = (productos) => ({
+    type: PRODUCTOS_FILTRADOS_EXITO,
+    payload: productos,
+    error: false    
+})
+
+export const filtrandoProductosError = () => ({
+    type: PRODUCTOS_FILTRADOS_ERROR,
     error: true
 })

@@ -10,6 +10,7 @@ const NuevoProducto = () => {
 
     //state del componente
     const [nombre, guardarNombre] = useState('');
+    const [categoria, guardarCategoria] = useState('');
     const [precio, guardarPrecio] = useState(0);
     const [mensaje, guardarMensaje] = useState('');
 
@@ -38,12 +39,14 @@ const NuevoProducto = () => {
         validarFormularioExito();
         agregarNuevoProduto({
             nombre,
-            precio
+            precio,
+            categoria
         })
 
         //Limpiar formulario
         guardarNombre('')
         guardarPrecio(0)
+        guardarCategoria('')
 
         //Mostrar mensaje de agregado
         guardarMensaje('¡Libro agregado con exito!')
@@ -75,6 +78,15 @@ const NuevoProducto = () => {
                                     value={nombre}
                                     onChange={e => guardarNombre(e.target.value)}
                                 />
+                                <label>Categoria</label>
+                                <select 
+                                    className="categorias"
+                                    onChange={e => guardarCategoria(e.target.value)}>
+                                    <option value="cocina">Cocina</option>
+                                    <option value="comedia">Comedia</option>
+                                    <option value="ciencia">Ciencia</option>
+                                    <option value="deporte">Deporte</option>
+                                </select>
                             </div>
                             <div className="form-group">
                                 <label>Precio Libro</label>
